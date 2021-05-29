@@ -77,7 +77,7 @@ class MainWindowUI(QtWidgets.QMainWindow, Ui_SketchGen):
                 pred = model.forward( data )
 
             final_img = '.temp/sketchsp.png'
-                save_image( pred[0], final_img)
+            save_image( pred[0], final_img)
 
 
             pixmap = QtGui.QPixmap(final_img).scaled(512, 512)
