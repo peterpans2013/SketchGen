@@ -1,3 +1,3 @@
-pip install torch==0.4.1.post2 torchvision==0.2.1 "pillow<7" numpy==1.15.4
+sudo python -m pip install torch==0.4.1.post2 torchvision==0.2.1 PyQt5==5.12
 
-apt install imagemagick
+sudo apt install imagemagick
