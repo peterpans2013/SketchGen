@@ -20,13 +20,15 @@
 
 ### Loạt đề tài: Tìm hiểu lý thuyết  - Nghiên cứu công nghệ và xây dựng ứng dụng
 
-## Giới thiệu
+## Tổng quan
+Ứng dụng này cho phép người dùng chuyển một ảnh bất kỳ sang ảnh phác thảo đơn giản hoá.
+![screenshot](./screenshot.png)
 
 ## Yêu cầu
 
 1. Phần cứng
 
--   Ubuntu 16.04 hoặc mới hơn
+-   Ubuntu 18.04 hoặc mới hơn
 
 -   NVIDIA GPU + CUDA 9.2 (tuỳ chọn)
 
@@ -52,14 +54,14 @@ Kích hoạt môi trường PyThon ảo và gõ câu lệnh sau:
 sh setup_env.sh
 ```
 
-## Cách sử dụng
+## Hướng dẫn sử dụng
 Trước khi mở ứng dụng, chạy câu lệnh sau để tải weight:
 
 ```
 sh download_models.sh
 ```
 
-Chạy câu lệnh sau để sử dụng phiên bản CPU:
+Sau khi tải xong, chạy câu lệnh sau để sử dụng phiên bản CPU:
 
 ```
 python3.7 SketchGen_cpu.py
