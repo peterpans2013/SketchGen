@@ -1,7 +1,6 @@
-# SketchGen
 # SketchGen (Ứng dụng chuyển đổi ảnh khuôn mặt thành nét phác thảo đơn giản)
 
-## Đồ án tốt nghiệp 
+## Đồ án tốt nghiệp chuyên ngành khoa học máy tính
 
 ### Tên đề tài: TÁI TẠO HÌNH ẢNH KHUÔN MẶT NGƯỜI TỪ NÉT PHÁC THẢO
 
@@ -20,3 +19,54 @@
 | Nguyễn Ngọc Chung Chí | 1712300 | 1712300@student.hcmus.edu.vn |
 
 ### Loạt đề tài: Tìm hiểu lý thuyết  - Nghiên cứu công nghệ và xây dựng ứng dụng
+
+## Giới thiệu
+
+## Yêu cầu
+
+1. Phần cứng
+
+-   Ubuntu 16.04 hoặc mới hơn
+
+-   NVIDIA GPU + CUDA 9.2 (tuỳ chọn)
+
+2. Phần mềm
+
+-   Python 3.7
+-   torch==0.4.1.post2 
+-   torchvision==0.2.1 
+-   PyQt5==5.12
+-   ImageMagick
+
+```
+sudo python3 -m pip install torch==0.4.1.post2 torchvision==0.2.1 PyQt5==5.12
+
+sudo apt install imagemagick
+```
+
+-   Cài đặt
+
+Kích hoạt môi trường PyThon ảo và gõ câu lệnh sau:
+
+```
+sh setup_env.sh
+```
+
+## Cách sử dụng
+Trước khi mở ứng dụng, chạy câu lệnh sau để tải weight:
+
+```
+sh download_models.sh
+```
+
+Chạy câu lệnh sau để sử dụng phiên bản CPU:
+
+```
+python3.7 SketchGen_cpu.py
+```
+
+Hoặc chạy câu lệnh sau để sử dụng phiên bản GPU:
+
+```
+python3.7 SketchGen.py
+```
