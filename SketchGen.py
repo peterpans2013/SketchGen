@@ -32,6 +32,8 @@ class MainWindowUI(QtWidgets.QMainWindow, Ui_SketchGen):
         self.saveButton.clicked.connect(self.saveImage)
 
         self.actionQuit.triggered.connect(self.exitApp)
+        app.aboutToQuit.connect(self.exitApp)
+
         
     def openImage(self):
         image_file, _ = QtWidgets.QFileDialog.getOpenFileName(None, "Open File", "", "Images (*.jpg *.png);; All Files (*)")
@@ -48,8 +50,14 @@ class MainWindowUI(QtWidgets.QMainWindow, Ui_SketchGen):
             self.InputImgView.setScene(self.InputScene)
             self.InputImgView.show()
 
+            self.OutputScene = QtWidgets.QGraphicsScene()
+            self.OutputScene.clear()
+            self.OutputImgView.setScene(self.OutputScene)
+            self.OutputImgView.show()
+
         else:
             QtWidgets.QMessageBox.information(None, "Error", "Unable to open image.", QtWidgets.QMessageBox.Ok)
+
 
     def sketchImage(self):
         if self.input_img:
@@ -89,6 +97,7 @@ class MainWindowUI(QtWidgets.QMainWindow, Ui_SketchGen):
         else:
             QtWidgets.QMessageBox.information(None, "Error", "Input Image not found!", QtWidgets.QMessageBox.Ok)
 
+
     def saveImage(self):
         image_file, _ = QtWidgets.QFileDialog.getSaveFileName(None, "Save File", "", "Images (*.jpg *.png);; All Files (*)")
         img = cv.imread('.temp/sketchsp.png')
@@ -97,9 +106,11 @@ class MainWindowUI(QtWidgets.QMainWindow, Ui_SketchGen):
         else:
             QQtWidgets.MessageBox.information(self, "Error", "Unable to save image.", QMessageBox.Ok)
 
+
     def exitApp(self):
         subprocess.call('rm -rf ./.temp', shell=True)
         self.close()
+
 
 if __name__ == "__main__":
     
@@ -116,4 +127,4 @@ if __name__ == "__main__":
     subprocess.call('mkdir ./.temp', shell=True)
     window = MainWindowUI()
     sys.exit(app.exec_())
-    
+    subprocess.call('rm -rf ./.temp', shell=True)
